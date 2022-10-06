@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  frontend:
+    image: nginx
+    ports:
+      - "80:80"
+    networks:
+      - front-tier
+      - back-tier
+
+  backend:
+    image: mariadb
+    networks:
+      - back-tier
+
+networks:
+  # The presence of these objects is sufficient to define them
+  front-tier: {}
+  back-tier: {}
